@@ -32,7 +32,13 @@ const CustomHighlight = connectHighlight(({ highlight, attribute, hit }) => {
 
 const Results = connectStateResults(
   ({ searchState, searchResults, children }) =>
-    searchResults && searchResults.nbHits !== 0 ? children : <h1>loading...</h1>
+    searchResults && searchResults.nbHits !== 0 ? (
+      children
+    ) : (
+      <h1 style={{ color: "white" }}>
+        There are currently no researches related to those keywords
+      </h1>
+    )
 );
 const Hit = ({ hit }) => (
   <p>
